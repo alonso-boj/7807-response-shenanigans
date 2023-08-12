@@ -14,7 +14,7 @@ public class StandardController : ControllerBase
 
         ValidationProblemDetails validationProblemDetails = new(ModelState)
         {
-            Type = "https://httpstatuses.com/422",
+            Type = $"https://httpstatuses.com/{StatusCodes.Status422UnprocessableEntity}",
             Detail = "See the errors property for information about which fields are invalid.",
             Instance = HttpContext.Request.Path,
             Status = StatusCodes.Status422UnprocessableEntity

@@ -1,3 +1,4 @@
+using Company.Store.API.Middlewares;
 using FluentValidation;
 using System.Reflection;
 
@@ -17,11 +18,15 @@ public static class Program
 
         builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
+        builder.Services.AddTransient<GlobalExceptionHandlingMiddleware>();
+
         var app = builder.Build();
 
         app.UseSwagger();
 
         app.UseSwaggerUI();
+
+        app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
         app.UseHttpsRedirection();
 

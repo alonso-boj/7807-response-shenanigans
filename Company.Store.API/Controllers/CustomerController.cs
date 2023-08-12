@@ -17,6 +17,7 @@ public class CustomerController : StandardController
 
     [HttpPost("register")]
     [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status422UnprocessableEntity)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> RegisterCustomerAsync([FromBody] RegisterCustomerRequest request)
     {
         var validationResult = await _validator.ValidateAsync(request);
