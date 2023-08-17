@@ -1,5 +1,7 @@
 using Company.Store.API.Middlewares;
 using FluentValidation;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace Company.Store.API;
